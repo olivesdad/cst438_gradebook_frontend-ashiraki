@@ -28,6 +28,7 @@ class AddAssignment extends React.Component {
     this.setState({ [e.target.name] : val});
     console.log(JSON.stringify({assignmentName:this.state.assignmentName,  dueDate: this.state.dueDate, courseId: this.state.courseId}));
   }
+
   handleSubmit=()=> {
     console.log('AddAssignment.handleSubmit')
     const token = Cookies.get('XSRF-TOKEN');
@@ -101,11 +102,9 @@ class AddAssignment extends React.Component {
       
       const assignmentSelected = this.state.assignments[this.state.selected];
       return (
-          <div align="left" >
+          <div align="center" >
             <h4>Add Assignment: </h4>
-              <div style={{ height: 450, width: '100%', align:"left"   }}>
-                <DataGrid rows={this.state.assignments} columns={columns} />
-              </div>
+
               <form>
                 <label> Assignment Name:
                 <input type="text" name="assignmentName" value={this.state.assignmentName} onChange={this.handleChange}/>
